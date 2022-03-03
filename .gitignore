@@ -1,0 +1,9 @@
+# auth file
+GoogleService-Info.plist
+
+# Podfiles
+Pods/
+Podfile
+
+# Mac os files
+.DS_Store
