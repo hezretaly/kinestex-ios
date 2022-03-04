@@ -11,22 +11,17 @@ import FirebaseDatabase
 // Combine is must for ObservableObject protocol in other words it is Combine's protocol
 import Combine
 
-struct Exercise: Decodable {
+struct Exercise {
     let countdown: String
     let tv: String
     let videoURL: String
 }
-struct VideosDis: Decodable {
-    let description: String?
-    let title: String?
-    let videoURL: String?
-}
 
-struct WorkoutDis: Decodable {
-    let expandedDescription: String?
-    let imageWorkoutDis: String?
-    let videosDis: [VideosDis]?
-}
+//struct WorkoutDis {
+//    let expandedDescription: String?
+//    let imageWorkoutDis: String?
+//    let videosDis: [VideoDes]?
+//}
 
 struct WorkoutsModel: Identifiable {
     var id = UUID()
@@ -43,6 +38,7 @@ struct WorkoutsModel: Identifiable {
 //    var title_ru: String = ""
     var totalTime: Int = 0
     var expandedDes: String = ""
+    var videosDes: [VideoDes] = []
 //    var workout_img: UIImage = UIImage()
 //    var videoURL: String = ""
 //    var workoutDis: [WorkoutDis]?
@@ -76,6 +72,40 @@ struct WorkoutsModel: Identifiable {
 //    }
 }
 
+struct NewsLoop: Identifiable {
+    var id = UUID()
+    var author: String = ""
+    var category: String = ""
+    var duration: Int = 0
+    var imgURL: String = ""
+    var text: String = ""
+    var time: String = ""
+    var title: String = ""
+}
+
+struct NewsRec: Identifiable {
+    var id = UUID()
+    var author: String = ""
+    var category: String = ""
+    var duration: Int = 0
+    var imgURL: String = ""
+    var text: String = ""
+    var time: String = ""
+    var title: String = ""
+}
+
+struct TopCategory: Identifiable {
+    var id = UUID()
+    var imgURL: String = ""
+    var title: String = ""
+}
+
+struct News {
+    var newsLoop: [NewsLoop] = []
+    var newsRec: [NewsRec] = []
+    var topCategory: [TopCategory] = []
+}
+
 class Workout: ObservableObject {
     @Published var workouts: [WorkoutsModel] = []
 }
@@ -83,6 +113,7 @@ class Workout: ObservableObject {
 
 class FirebaseManager: ObservableObject {
     @Published var workouts: [WorkoutsModel] = [] //? = nil
+    @Published var news = News()
     var ref: DatabaseReference!
 //    @StateObject var workout = Workout()
 //    var workout: WorkoutsModel = WorkoutsModel()
@@ -157,6 +188,14 @@ class FirebaseManager: ObservableObject {
                     workout.sub_category = Object?["sub_category"] as! String
                     workout.imgURL = Object?["imgURL"] as! String
                     workout.expandedDes = Object?["workoutDis"]?["expandedDescription"] as! String
+                    for videosChild in childInsideWorkouts.childSnapshot(forPath: "workoutDis/videosDis").children.allObjects as! [DataSnapshot] {
+                        let Object = videosChild.value as? [String: AnyObject]
+                        var videoDes = VideoDes()
+                        videoDes.videoUrl = Object?["videoURL"] as! String
+                        videoDes.title = Object?["title"] as! String
+                        videoDes.description = Object?["description"] as! String
+                        workout.videosDes.append(videoDes)
+                    }
 //                    workout.uiImage = UiImageModel(urlString: workout.imgURL)
 //                    print(workout)
 //                    print(self.workouts)
@@ -217,6 +256,62 @@ class FirebaseManager: ObservableObject {
 //                }
 
 //            }
+        }){ error in
+            print(error.localizedDescription)
+          }
+    }
+    
+    func articlesGet() -> Void {
+        if self.news.newsLoop.count > 0 {
+            return
+        }
+        ref=Database.database().reference()
+        ref.child("news").child("news_loop").observeSingleEvent(of: DataEventType.value, with: { snapshot in
+            if snapshot.childrenCount > 0{
+                for childInsideWorkouts in snapshot.children.allObjects as! [DataSnapshot]{
+                    let Object = childInsideWorkouts.value as? [String: AnyObject]
+                    var newsLoop = NewsLoop()
+                    newsLoop.title = Object?["title"] as! String
+                    newsLoop.category = Object?["category"] as! String
+                    newsLoop.duration = Object?["duration"] as! Int
+                    newsLoop.text = Object?["text"] as! String
+                    newsLoop.time = Object?["time"] as! String
+                    newsLoop.author = Object?["author"] as! String
+                    newsLoop.imgURL = Object?["imgURL"] as! String
+                    self.news.newsLoop.append(newsLoop)
+                }
+            }
+        }){ error in
+            print(error.localizedDescription)
+          }
+        ref.child("news").child("news_rec").observeSingleEvent(of: DataEventType.value, with: { snapshot in
+            if snapshot.childrenCount > 0{
+                for childInsideWorkouts in snapshot.children.allObjects as! [DataSnapshot]{
+                    let Object = childInsideWorkouts.value as? [String: AnyObject]
+                    var newsRec = NewsRec()
+                    newsRec.title = Object?["title"] as! String
+                    newsRec.category = Object?["category"] as! String
+                    newsRec.duration = Object?["duration"] as! Int
+                    newsRec.text = Object?["text"] as! String
+                    newsRec.time = Object?["time"] as! String
+                    newsRec.author = Object?["author"] as! String
+                    newsRec.imgURL = Object?["imgURL"] as! String
+                    self.news.newsRec.append(newsRec)
+                }
+            }
+        }){ error in
+            print(error.localizedDescription)
+          }
+        ref.child("news").child("topCategory").observeSingleEvent(of: DataEventType.value, with: { snapshot in
+            if snapshot.childrenCount > 0{
+                for childInsideWorkouts in snapshot.children.allObjects as! [DataSnapshot]{
+                    let Object = childInsideWorkouts.value as? [String: AnyObject]
+                    var topCategory = TopCategory()
+                    topCategory.title = Object?["title"] as! String
+                    topCategory.imgURL = Object?["imgURL"] as! String
+                    self.news.topCategory.append(topCategory)
+                }
+            }
         }){ error in
             print(error.localizedDescription)
           }

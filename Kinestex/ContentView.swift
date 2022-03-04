@@ -22,15 +22,16 @@ struct ContentView: View {
                     Image(systemName: "figure.walk")
                     Text("moves")
                 }
-            Text("This would be third view")
+//            Text("This would be third view")
+            ArticlesView()
                 .tabItem {
-                    Image(systemName: "figure.walk")
-                    Text("moves")
+                    Image(systemName: "newspaper")
+                    Text("news")
                 }
             UserProfileView()
                 .tabItem {
                     Image(systemName: "person.crop.circle")
-                    Text("Profile")
+                    Text("profile")
                 }
         }
     }

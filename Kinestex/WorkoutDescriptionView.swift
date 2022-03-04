@@ -11,15 +11,15 @@ import SwiftUI
 struct SheetView: View {
 //    @Environment(\.presentationMode) var presentationMode
     
-    var description: String
+//    var description: String
 
     var body: some View {
         Text("Hello, this is a sheet swipe down to close")
             .padding()
         
-        Text(description+" exercise")
-            .bold()
-            .padding()
+//        Text(description+" exercise")
+//            .bold()
+//            .padding()
             
 //        Button("Press to dismiss") {
 //            presentationMode.wrappedValue.dismiss()
@@ -40,13 +40,15 @@ struct WorkoutDescriptionView: View {
 //    @ObservedObject var url: LoadUrlImage
     
     var workout: WorkoutsModel
+    @State private var index: Int? = nil
     
 //    init(workout: WorkoutsModel) {
 //        self.workout = workout
 //        url = LoadUrlImage(imageURL: workout.imgURL)
 //    }
     
-    @State private var selectedMovie: Int? = nil
+//    @State private var selectedMovie: Int? = nil
+//    @State private var isPresented: Bool = false
     
     var movies = ["Harry potter", "Mad Max", "Oblivion", "Memento"]
     
@@ -112,7 +114,7 @@ struct WorkoutDescriptionView: View {
                         .font(.title2)
                         .fontWeight(.bold)
                         .padding(.vertical)
-                    ForEach(0..<movies.count) { movie in
+                    ForEach(workout.videosDes) { video in
                         HStack {
                             Image("HomeTopImage")
                                 .resizable()
@@ -120,28 +122,35 @@ struct WorkoutDescriptionView: View {
                                 .frame(height: 100)
                             
                             VStack {
-                                Text("Title \(movie)")
+                                Text(video.title)
                                     .font(.title)
                                 
-                                Text("Description of this particular exercise video")
+                                Text(video.description)
+                                    .lineLimit(2)
                             }
                             
                             Spacer()
                         }
 //                        .padding(.leading, 10)
                         .onTapGesture {
-                            self.selectedMovie = movie
+                            self.index = workout.videosDes.firstIndex(where: {$0.id==video.id})!
+//                            self.isPresented.toggle()
                         }
                         
                     }
-                        .sheet(item: self.$selectedMovie) {
-                            SheetView(description: self.movies[$0])
-                        }
+//                        .sheet(item: self.$selectedMovie) { item in
+//                            SheetView()
+//                            //SheetView(description: self.movies[$0])
+//                        }
                 }
                 .padding(.leading, 20)
             }
             .onAppear {
                 ImageCache.loadImage(urlString: workout.imgURL, completion: setImg)
+            }
+            .sheet(item: self.$index) {
+                WorkoutDesVideoPreView(vd: self.workout.videosDes[$0])
+                //SheetView(description: self.movies[$0])
             }
 //        Only available in ios 15
 //                .safeAreaInset(edge: .top) {

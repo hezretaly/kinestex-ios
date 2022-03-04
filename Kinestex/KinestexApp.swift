@@ -14,7 +14,6 @@ struct KinestexApp: App {
     init() {
         FirebaseApp.configure()
         FirebaseDatabase.Database.database().isPersistenceEnabled = true
-//        _ = Workout.init()
     }
     var body: some Scene {
         WindowGroup {
