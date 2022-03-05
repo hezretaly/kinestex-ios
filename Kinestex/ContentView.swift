@@ -22,7 +22,6 @@ struct ContentView: View {
                     Image(systemName: "figure.walk")
                     Text("moves")
                 }
-//            Text("This would be third view")
             ArticlesView()
                 .tabItem {
                     Image(systemName: "newspaper")

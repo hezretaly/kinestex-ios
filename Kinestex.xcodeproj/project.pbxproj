@@ -88,6 +88,17 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		EF40606627D3AE5E007FBFD5 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				EF24E2CA27D14954002B683F /* NewsRecView.swift */,
+				EF24E2C827D141BE002B683F /* NewsLoopView.swift */,
+				EF24E2C627D1390E002B683F /* NewsTopCategoryView.swift */,
+				EF5235D927D10B30008059DB /* ArticlesView.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
 		EFF48F5A27C0EA5F00592F53 = {
 			isa = PBXGroup;
 			children = (
@@ -126,10 +137,7 @@
 				EF5235D127D0B6EA008059DB /* Video.swift */,
 				EF5235D727D0E296008059DB /* VideoCaching.swift */,
 				EFD08BBD27D1E5C300B7815F /* CachingPlayerItem.swift */,
-				EF5235D927D10B30008059DB /* ArticlesView.swift */,
-				EF24E2C627D1390E002B683F /* NewsTopCategoryView.swift */,
-				EF24E2C827D141BE002B683F /* NewsLoopView.swift */,
-				EF24E2CA27D14954002B683F /* NewsRecView.swift */,
+				EF40606627D3AE5E007FBFD5 /* News */,
 			);
 			path = Kinestex;
 			sourceTree = "<group>";

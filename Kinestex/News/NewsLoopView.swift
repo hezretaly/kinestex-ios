@@ -26,20 +26,21 @@ struct NewsLoopView: View {
             Image(uiImage: img)
                 .resizable()
                 .frame(width: 300, height: 200)
-                .scaledToFit()
+                .scaledToFill()
                 .clipped()
             HStack {
                 VStack(alignment: .leading) {
+                    Spacer()
 
                     Text(newsLoop.title)
-                        .font(.body)
+                        .font(.title)
                     
                     Text(newsLoop.author)
-                        .font(.footnote)
+                        .font(.body)
                     
                 }
-                .foregroundColor(.white)
-                .padding(EdgeInsets(top: 70, leading: 20, bottom: 0, trailing: 0))
+//                .foregroundColor(.white)
+//                .padding(EdgeInsets(top: 70, leading: 20, bottom: 0, trailing: 0))
                 Spacer()
             }
         }

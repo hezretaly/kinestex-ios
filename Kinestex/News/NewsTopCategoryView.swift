@@ -26,7 +26,7 @@ struct NewsTopCategoryView: View {
             Image(uiImage: img)
                 .frame(width: 100, height: 100)
                 .clipShape(Circle())
-                .shadow(radius: 10)
+//                .shadow(radius: 10)
                 .scaledToFill()
 //                .cornerRadius(20)
             Text(topCategory.title)

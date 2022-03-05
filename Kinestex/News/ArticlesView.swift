@@ -35,7 +35,7 @@ struct ArticlesView: View {
                     
                     Divider()
                     
-                    VStack{
+                    VStack(spacing: 10){
                         ForEach(firebaseManager.news.newsRec){ newsRec in
                             NewsRecView(newsRec: newsRec)
                         }

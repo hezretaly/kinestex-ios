@@ -8,6 +8,34 @@
 import SwiftUI
 import AVKit
 
+
+
+//public func imageFromVideo(url: URL, at time: TimeInterval, completion: @escaping (UIImage?) -> Void) {
+//    DispatchQueue.global(qos: .background).async {
+//        let asset = AVURLAsset(url: url)
+//
+//        let assetIG = AVAssetImageGenerator(asset: asset)
+//        assetIG.appliesPreferredTrackTransform = true
+//        assetIG.apertureMode = AVAssetImageGenerator.ApertureMode.encodedPixels
+//
+//        let cmTime = CMTime(seconds: time, preferredTimescale: 60)
+//        let thumbnailImageRef: CGImage
+//        do {
+//            thumbnailImageRef = try assetIG.copyCGImage(at: cmTime, actualTime: nil)
+//        } catch let error {
+//            print("Error: \(error)")
+//            return completion(nil)
+//        }
+//
+//        DispatchQueue.main.async {
+//            completion(UIImage(cgImage: thumbnailImageRef))
+//        }
+//    }
+//}
+//imageFromVideo(url: videoUrl, at: 0) { image in
+//   // Do something with the image here
+//}
+
 struct WorkoutDesVideoPreView: View {
     
     @State var vd: VideoDes
