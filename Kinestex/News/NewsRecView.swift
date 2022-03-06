@@ -91,7 +91,8 @@ struct NewsRecView: View {
             isPresented.toggle()
         }
         .sheet(isPresented: $isPresented) {
-            SheetView()
+//            SheetView()
+            NewsRecDetailView(recN: newsRec)
         }
         .padding()
         .onAppear(perform: {
