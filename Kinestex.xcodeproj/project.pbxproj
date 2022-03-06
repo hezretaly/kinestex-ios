@@ -24,6 +24,12 @@
 		EF968CC427D49175009289E6 /* NewsLoopTestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF968CC327D49175009289E6 /* NewsLoopTestView.swift */; };
 		EF968CC627D4F3E3009289E6 /* NewsRecDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF968CC527D4F3E3009289E6 /* NewsRecDetailView.swift */; };
 		EF968CC827D50CB6009289E6 /* NewsLoopDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF968CC727D50CB6009289E6 /* NewsLoopDetailView.swift */; };
+		EF968CCC27D53175009289E6 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF968CCB27D53175009289E6 /* ProfileView.swift */; };
+		EF968CCE27D531C2009289E6 /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF968CCD27D531C2009289E6 /* UserSettings.swift */; };
+		EF968CD027D532C1009289E6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF968CCF27D532C1009289E6 /* SettingsView.swift */; };
+		EF968CD227D532E7009289E6 /* colorSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF968CD127D532E7009289E6 /* colorSlider.swift */; };
+		EF968CD427D5333D009289E6 /* HeaderBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF968CD327D5333D009289E6 /* HeaderBanner.swift */; };
+		EF968CD627D53F62009289E6 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF968CD527D53F62009289E6 /* SettingView.swift */; };
 		EFAE5D2627CF442900D9CAA5 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFAE5D2527CF442900D9CAA5 /* ImageCache.swift */; };
 		EFD08BBE27D1E5C300B7815F /* CachingPlayerItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD08BBD27D1E5C300B7815F /* CachingPlayerItem.swift */; };
 		EFD08BC027D1EAE400B7815F /* VideoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFD08BBF27D1EAE400B7815F /* VideoModel.swift */; };
@@ -54,6 +60,12 @@
 		EF968CC327D49175009289E6 /* NewsLoopTestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLoopTestView.swift; sourceTree = "<group>"; };
 		EF968CC527D4F3E3009289E6 /* NewsRecDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsRecDetailView.swift; sourceTree = "<group>"; };
 		EF968CC727D50CB6009289E6 /* NewsLoopDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsLoopDetailView.swift; sourceTree = "<group>"; };
+		EF968CCB27D53175009289E6 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		EF968CCD27D531C2009289E6 /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		EF968CCF27D532C1009289E6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		EF968CD127D532E7009289E6 /* colorSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = colorSlider.swift; sourceTree = "<group>"; };
+		EF968CD327D5333D009289E6 /* HeaderBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderBanner.swift; sourceTree = "<group>"; };
+		EF968CD527D53F62009289E6 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		EFAE5D2527CF442900D9CAA5 /* ImageCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		EFD08BBD27D1E5C300B7815F /* CachingPlayerItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CachingPlayerItem.swift; sourceTree = "<group>"; };
 		EFD08BBF27D1EAE400B7815F /* VideoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoModel.swift; sourceTree = "<group>"; };
@@ -108,6 +120,20 @@
 			path = News;
 			sourceTree = "<group>";
 		};
+		EF968CCA27D51FFD009289E6 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				EFEC833427C6B3CA0096828F /* UserProfileView.swift */,
+				EF968CD327D5333D009289E6 /* HeaderBanner.swift */,
+				EF968CCB27D53175009289E6 /* ProfileView.swift */,
+				EF968CCD27D531C2009289E6 /* UserSettings.swift */,
+				EF968CCF27D532C1009289E6 /* SettingsView.swift */,
+				EF968CD127D532E7009289E6 /* colorSlider.swift */,
+				EF968CD527D53F62009289E6 /* SettingView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		EFF48F5A27C0EA5F00592F53 = {
 			isa = PBXGroup;
 			children = (
@@ -136,7 +162,6 @@
 				EFF48F6A27C0EA6200592F53 /* Assets.xcassets */,
 				EFF48F6C27C0EA6200592F53 /* Preview Content */,
 				EF6E511C27C2A0DC00104BEC /* WorkoutDescriptionView.swift */,
-				EFEC833427C6B3CA0096828F /* UserProfileView.swift */,
 				EF8DF06227C75078001B185C /* WorkoutsModel.swift */,
 				EFD08BBF27D1EAE400B7815F /* VideoModel.swift */,
 				EF050A3727CA0FFA00EBCF8E /* HomeView.swift */,
@@ -146,6 +171,7 @@
 				EF5235D127D0B6EA008059DB /* Video.swift */,
 				EF5235D727D0E296008059DB /* VideoCaching.swift */,
 				EFD08BBD27D1E5C300B7815F /* CachingPlayerItem.swift */,
+				EF968CCA27D51FFD009289E6 /* Profile */,
 				EF40606627D3AE5E007FBFD5 /* News */,
 			);
 			path = Kinestex;
@@ -276,11 +302,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFAE5D2627CF442900D9CAA5 /* ImageCache.swift in Sources */,
+				EF968CD027D532C1009289E6 /* SettingsView.swift in Sources */,
 				EFF48F6927C0EA5F00592F53 /* ContentView.swift in Sources */,
 				EF6398BB27D0A6D30086C2E6 /* WorkoutDesVideoPreView.swift in Sources */,
 				EF5235DA27D10B30008059DB /* ArticlesView.swift in Sources */,
 				EF24E2CB27D14954002B683F /* NewsRecView.swift in Sources */,
 				EFF48F6727C0EA5F00592F53 /* KinestexApp.swift in Sources */,
+				EF968CD427D5333D009289E6 /* HeaderBanner.swift in Sources */,
 				EF6E511D27C2A0DC00104BEC /* WorkoutDescriptionView.swift in Sources */,
 				EF24E2C927D141BE002B683F /* NewsLoopView.swift in Sources */,
 				EF968CC827D50CB6009289E6 /* NewsLoopDetailView.swift in Sources */,
@@ -294,7 +322,11 @@
 				EF968CC427D49175009289E6 /* NewsLoopTestView.swift in Sources */,
 				EF968CC627D4F3E3009289E6 /* NewsRecDetailView.swift in Sources */,
 				EF5235D227D0B6EA008059DB /* Video.swift in Sources */,
+				EF968CD627D53F62009289E6 /* SettingView.swift in Sources */,
+				EF968CCC27D53175009289E6 /* ProfileView.swift in Sources */,
 				EF24E2C727D1390E002B683F /* NewsTopCategoryView.swift in Sources */,
+				EF968CD227D532E7009289E6 /* colorSlider.swift in Sources */,
+				EF968CCE27D531C2009289E6 /* UserSettings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
